@@ -1,1 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Data Visualization Tutorial</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Century Gothic, sans-serif;
+        }
+        .container {
+            display: flex;
+            justify-content: left;
+            align-items: left;
+            height: 100vh;
+        }
+        .chart-container {
+            width: 400px;
+            margin-right: 100px;
+        }
+        .chart-heading {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="chart-container">
+            <h2 class="chart-heading">Doughnut Chart</h2>
+            <canvas id="doughnutChart"></canvas>
+        </div>
+        <div class="chart-container">
+            <h2 class="chart-heading">Horizontal Bar Chart</h2>
+            <canvas id="horizontalBarChart"></canvas>
+        </div>
+    </div>
 
+    <script>
+        // Dataset
+        var dataset = {
+            labels: ["Aasha", "Simrin", "Priya", "Nowmi", "Barbie"],
+            data: [500, 265, 458, 379, 245],
+        };
+
+        // Doughnut Chart
+        var doughnutChart = new Chart(document.getElementById("doughnutChart"), {
+            type: "doughnut",
+            data: {
+                labels: dataset.labels,
+                datasets: [
+                    {
+                        data: dataset.data,
+                        backgroundColor: ["#89cff0", "#aaf0d1", "#ffb7ce", "#befd73", "#ff6961"],
+                    },
+                ],
+            },
+            options: {
+                responsive: true,
+                legend: {
+                    display: false,
+                },
+                title: {
+                    display: true,
+                    text: "Doughnut Chart - Authors",
+                },
+            },
+        });
+
+        // Horizontal Bar Chart
+        var horizontalBarChart = new Chart(document.getElementById("horizontalBarChart"), {
+            type: "horizontalBar",
+            data: {
+                labels: dataset.labels,
+                datasets: [
+                    {
+                        data: dataset.data,
+                        backgroundColor: ["#89cff0", "#aaf0d1", "#ffb7ce", "#befd73", "#ff6961"],
+                    },
+                ],
+            },
+            options: {
+                responsive: true,
+                legend: {
+                    display: false,
+                },
+                title: {
+                    display: true,
+                    text: "Horizontal Bar Chart - Authors",
+                },
+                scales: {
+                    xAxes: [{
+                        ticks: {
+                            beginAtZero: true,
+                        },
+                    }],
+                },
+            },
+        });
+    </script>
+</body>
+</html>
