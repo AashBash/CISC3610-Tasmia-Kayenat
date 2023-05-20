@@ -1,1 +1,50 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Text Form</title>
+    <link rel="stylesheet" href="css.css" />
+  </head>
+  <body align="center">
+    <h1>Welcome to Assignment 3...</h1>
+    <br /><br /><br />
+    <label for="name">Enter your Name</label>
+    <input type="text" id="name" name="name" />
+    <br />
+    <br />
+    <input type="text" id="bgColor" />
 
+    <input type="color" id="rgbcolor" />
+    <input
+      type="button"
+      id="colorButton"
+      value="Click Here to Change the color"
+      onclick="changeBackground()"
+    />
+    <!--This is for text color change-->
+    <h2 id="heading">You can change your text color here</h2>
+    <input type="color" id="myInput" onclick="chnageText()" />
+    <button id="myButton">Click here to change the background color</button>
+
+    <!--This is for text size-->
+    <div class="container">
+      <header class="container-head">
+        <h2>Resize your text using this slide button</h2>
+        <div class="slider-container">
+          <p class="font-size-text">
+            <span id="pixels">50</span>
+            px
+          </p>
+          <input type="range" min="12" max="48" value="40" id="slider" />
+        </div>
+      </header>
+      <div class="items">
+        <div class="row">
+        </div>
+      </div>
+    </div>
+    <script src="slider.js"></script>
+    <script src="javascript.js"></script>
+  </body>
+</html>
