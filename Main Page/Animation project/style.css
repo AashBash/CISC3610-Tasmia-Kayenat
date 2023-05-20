@@ -1,0 +1,35 @@
+body {
+    background-image: url('picture/dance\ class\ image.jpg');
+  }
+
+  /*Animation*/
+.rocket {
+  width: 220px;
+  height: 150px;
+  background: red;
+  position: relative;
+  animation: rocket 10s infinite;
+}
+
+@keyframes rocket {
+  from {left: 0px;}
+  to {left: 1425px;}
+}
+
+.pic{
+  display: inline-block;
+  height: 100%;
+}
+
+.pic img{
+  display: inline-block;
+  max-height: 1000%;
+  bottom: 240;
+  position: absolute;
+
+}
+.pic img:target{
+  position: relative;
+  top: 0;
+  max-height: 100%;
+}
