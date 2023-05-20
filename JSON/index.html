@@ -1,1 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fruit Sales Bar Chart</title>
+    <style>
+        canvas {
+            border: 3px solid #000;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to the first lab..</h1>
+    <h2>Tasmia Kayenat's bar chart for Fruit sales</h2>
+    <canvas id="barChart" width="500" height="400"></canvas>
 
+    <script>
+        var fruitData = [
+            { name: "Apple", quantity: 20, color: "red" },
+            { name: "Orange", quantity: 10, color: "orange" },
+            { name: "Banana", quantity: 15, color: "yellow" },
+            { name: "Kiwi", quantity: 5, color: "green" },
+            { name: "Blueberry", quantity: 5, color: "blue" },
+            { name: "Grapes", quantity: 10, color: "purple" },
+        ];
+
+        var canvas = document.getElementById("barChart");
+        var context = canvas.getContext("2d");
+
+        var maxQuantity = Math.max(...fruitData.map((fruit) => fruit.quantity));
+
+        var barWidth = 40;
+        var barSpacing = 30;
+
+        var startX = 40;
+        var startY = 250;
+
+    
+        fruitData.forEach(function (fruit, index) {
+            
+            var barHeight = (fruit.quantity / maxQuantity) * 200;
+
+            context.fillStyle = fruit.color;
+
+            context.fillRect(startX, startY - barHeight, barWidth, barHeight);
+
+            context.fillStyle = "#000";
+            context.fillText(
+                fruit.name,
+                startX + barWidth / 2 - context.measureText(fruit.name).width / 2,
+                startY + 20
+            );
+            startX += barWidth + barSpacing;
+        });
+    </script>
+</body>
+</html>
